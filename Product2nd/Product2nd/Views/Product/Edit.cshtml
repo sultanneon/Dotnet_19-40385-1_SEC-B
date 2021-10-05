@@ -1,6 +1,6 @@
 ﻿@model Product2nd.Models.Entities.Product
 <h2>Edit</h2>
-<form action="/Product/Edit" method="post">
+<form action="/Product/Edit/@Model.Id" method="post">
 
     Name: <input type="text" class="form-control" value="@Model.Name" name="Name" />
     @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })

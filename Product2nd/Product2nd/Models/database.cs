@@ -13,7 +13,7 @@ namespace Product2nd.Models
         public Products Products { get; set; }
         public Database()
         {   string connString = @"Server= DESKTOP-O6THEL9\SQLEXPRESS; Database=Product2nd; Integrated Security=true";
-            SqlConnection conn = new SqlConnection(connString);
+            conn = new SqlConnection(connString);
             Products = new Products(conn);
         }
     }

@@ -65,13 +65,13 @@ namespace Product2nd.Models.Tables
             conn.Close();
             return s;
         }
-        public int Edit(Product p)
+        public void Edit(Product p)
         {   conn.Open();
             string query = String.Format("update Products set Name='{0}',Qty={1},Price={2},Des='{3}'where Id='{4}'",p.Name,p.Qty,p.Price,p.Des,p.Id);
             SqlCommand cmd = new SqlCommand(query, conn);
             int a = cmd.ExecuteNonQuery();
             conn.Close();
-            return a;
+            
         }
        
     }

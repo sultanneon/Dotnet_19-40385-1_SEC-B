@@ -89,7 +89,6 @@ namespace Product2nd.Controllers
         public ActionResult Edit(Product a)
         { if (ModelState.IsValid)
             {
-               // int z = a.Id;
                 Database db = new Database();
                 db.Products.Edit(a);
                 return RedirectToAction("Index");
