@@ -1,0 +1,32 @@
+﻿@model List<Product2nd.Models.Entities.Product>
+@{ ViewBag.Title = "My Cart"; }
+
+<h2>Index</h2>
+<a class="btn btn-primary" href="/product/index">Products</a> 
+ <a class="btn btn-primary" href="/Product/CartIndex">My cart</a> 
+ <a class="btn btn-primary" href="/Order/Index">My orders</a>
+<hr>
+<h3>All Products</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Qty</th>
+        <th>Price</th>
+        <th>Desc</th>
+    </tr>
+    @foreach (var products in Model)
+    {
+<tr>
+    <td>@products.Id</td>
+    <td>@products.Name</td>
+    <td>@products.Qty</td>
+    <td>@products.Price</td>
+    <td>@products.Des</td>
+    <td><a href="/Product/RemoveCart/@products.Id" class="btn btn-danger">Delete</a></td>
+</tr>}
+</table>
+
+
+
+
