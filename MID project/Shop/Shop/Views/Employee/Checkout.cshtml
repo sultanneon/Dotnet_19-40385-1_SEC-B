@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Shop.Models.EF.Order>
+
+<a class="btn btn-success" href="/Employee/Index">Menu</a> |
+<a class="btn btn-danger" href="/Employee/Logout">Logout</a>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total_Cost)
+            </td>
+            <th>
+                @Html.DisplayFor(model => item.OrderID)
+            </th>
+            <td>
+                <a href="/Employee/OrderEdit/@item.OrderID" class="btn btn-success">Order Process</a>
+                <a href="@Url.Action("Delete",new { item.OrderID})" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>

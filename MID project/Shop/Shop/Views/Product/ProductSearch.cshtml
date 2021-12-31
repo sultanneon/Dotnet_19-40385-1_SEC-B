@@ -1,0 +1,55 @@
+﻿
+
+@model IEnumerable<Shop.Models.EF.Product>
+<br />
+<a class="btn btn-primary" href="/Product/Cart">Cart</a>
+<a class="btn btn-primary" href="/Product/MyOrders">MyOrder</a>
+<a href="/Customer/Index" class="btn btn-primary">Dashboard</a>
+<a href="/Customer/Logout" class="btn btn-primary">Logout</a>
+
+<hr />
+
+<table class=" table table-striped">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Basic Price</th>
+            <th>Discount Price</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="Search">
+                <td>@item.ProductID</td>
+                <td>@item.Product_Name</td>
+                <td>@item.Basic_Price</td>
+                <td>@item.Discount_Price</td>
+                <td>@item.Description</td>
+                <td><a href="/Product/AddtoCart/@item.ProductID" class="btn btn-success">Add to cart</a> </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
+    });
+</script>

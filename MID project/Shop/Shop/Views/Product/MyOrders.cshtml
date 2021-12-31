@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Shop.Models.EF.Order>
+
+@{ ViewBag.Title = "MyOrders"; }
+
+<h2>MyOrders</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+
+        </tr>
+    }
+
+</table>
+<a href="/Customer/Index" class="btn btn-primary">Dashboard</a>
+<a href="/Customer/Logout" class="btn btn-primary">Logout</a>
+<a href="/Product/ProductSearch" class="btn btn-primary">Shopping</a>

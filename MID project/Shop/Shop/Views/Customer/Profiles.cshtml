@@ -1,0 +1,47 @@
+﻿@model Shop.Models.EF.User
+
+<div>
+    <h4>User Profile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dd>
+            @Html.HiddenFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contactnumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contactnumber)
+        </dd>
+
+
+    </dl>
+</div>
+
+<a href="/Customer/Index/@Model.UserID" class="btn btn-primary">Dashboard</a>
+<a href="/Customer/Logout" class="btn btn-primary">Logout</a>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Shop.Models.VM.ProductModel>
+
+@{ ViewBag.Title = "Cart"; }
+
+<h2>Cart</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Basic_Price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Product_Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Basic_Price)
+    </td>
+
+    <td><a href="/Product/RemoveCart/@item.ProductID" class="btn btn-danger">Remove from Cart</a></td>
+
+</tr>}
+
+</table>
+<a href="/Product/Checkout" class="btn btn-primary">Checkout</a>
+<a href="/Product/ProductSearch" class="btn btn-primary">Shopping more</a>
+<a href="/Product/MyOrders" class="btn btn-primary">MyOrders</a>
+<a href="/Customer/Index" class="btn btn-primary">Dashboard</a>
+<a href="/Customer/Logout" class="btn btn-primary">Logout</a>
